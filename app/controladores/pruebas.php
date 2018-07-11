@@ -13,7 +13,8 @@ class pruebas extends controlador_base
 
     public function index(){
         var_dump('aqui toy');
-        $this->cargar->vista('index');
+		var_dump($_SERVER);
+		var_dump(base_url());
     }
 
     public function parametros($param_1 = false,$params_2 = false){
