@@ -1,18 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<?php
 
-    <meta name="author" content="Enrique Corona Ricaño">
-    <meta name="description" content="Curriculum Vitae Enrique Corona Ricaño ">
-    <meta name="keywords" content="Curriculum Enrique Corona, Enrique Corona, Licenciado en Informática Enrique Corona, enrique_cr1990@hotmail.com, enriquecr1990@gmail.com">
+/**
+ * 1. tener que crear el archivo .htaccess para el cacheo de las peticion que provienen de la url
+ * RewriteEngine On
+ * RewriteCond %{REQUEST_FILENAME} !-f
+ * RewriteCond %{REQUEST_FILENAME} !-d
+ * RewriteRule ^(.*)$ index.php?/$1
+ */
 
-    <title>Lic. Enrique Corona - CV</title>
-</head>
-<body>
-    <h5>Curriculum Vitae Enrique Corona</h5>
-</body>
-</html>
+/**
+ * 2. cargamos constantes que usaremos a lo largo del framework
+ */
+
+define('APP_PATH',__DIR__.'/app/');
+define('CONFIG_PATH',APP_PATH.'config/');
+define('CORE_PATH',APP_PATH.'core/');
+define('CONTROLADORES_PATH',APP_PATH.'controladores/');
+define('MODELOS_PATH',APP_PATH.'modelos/');
+define('VISTAS_PATH',APP_PATH.'vistas/');
+define('NAME_ESPACE_CTRL','\\App\\controladores');
+
+/**
+ * 3. cargar el nucleo del sistema, estó contendra los
+ * controladores, modelos, clases para la bd, ...
+ */
+
+include_once CONFIG_PATH.'autocarga.php';
+
+use App\core\framework;
+
+/**
+ * cargamos los objetos para la super clase
+ */
+
+/**
+ * 5. procesamos la peticion conforme la url
+ */
+$fw = new Framework();
+$fw->start();
