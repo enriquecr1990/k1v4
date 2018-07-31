@@ -4,6 +4,6 @@
 
 <br>
 <button type="button" class="btn_test">test</button>
-<?php var_dump(base_url()); ?>
+<?php print_r(base_url()); ?>
 
 <?php $this->vista('default/footer') ?>

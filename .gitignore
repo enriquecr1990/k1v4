@@ -1,0 +1,10 @@
+.DS_Store
+
+/vendor/
+
+/files_uploads/
+
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
