@@ -4,12 +4,12 @@ function base_url(){
     $scheme = 'http://';
     if(isset($_SERVER['REQUEST_SCHEME'])){
         $scheme = $_SERVER['REQUEST_SCHEME'].'://';
+    }if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != '' && $_SERVER['HTTPS'] == 'on'){
+        $scheme = 'https://';
     }
-    $request = explode('/',$_SERVER['SCRIPT_NAME']);
-    if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] != ''){
-        $request[1] = $_SERVER['SERVER_NAME'];
-    }
-    $url = $scheme.$_SERVER['HTTP_HOST'].'/'.$request[1].'/';
+    $request = str_replace('index.php','',$_SERVER['SCRIPT_NAME']);
+    $request = explode('/',$request);
+    $url = $scheme.$_SERVER['HTTP_HOST'].implode('/',$request);
     return $url;
 }
 
