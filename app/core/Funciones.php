@@ -6,6 +6,9 @@ function base_url(){
         $scheme = $_SERVER['REQUEST_SCHEME'].'://';
     }
     $request = explode('/',$_SERVER['SCRIPT_NAME']);
+    if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] != ''){
+        $request[1] = $_SERVER['SERVER_NAME'];
+    }
     $url = $scheme.$_SERVER['HTTP_HOST'].'/'.$request[1].'/';
     return $url;
 }
