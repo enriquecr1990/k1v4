@@ -1,2 +1,2 @@
-# perfil_cv
-Codigo fuente para el perfil profesional - Curriculum Vitae
+# My framework with pure PHP 
+Codigo fuente para el framework de PHP nativo
